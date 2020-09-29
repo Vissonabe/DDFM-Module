@@ -1,0 +1,3 @@
+rootProject.name = "DDFM-Module"
+include ':network'
+include ':coreUi'
