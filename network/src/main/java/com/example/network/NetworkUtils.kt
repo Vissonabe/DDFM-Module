@@ -6,5 +6,5 @@ object NetworkUtils {
         return true
     }
 
-    fun isConnectedToWifi() : Boolean = true
+    fun isConnectedToWifi() : Boolean = false
 }
