@@ -5,4 +5,6 @@ object NetworkUtils {
     fun isNetworkAvailable() : Boolean {
         return true
     }
+
+    fun isConnectedToWifi() : Boolean = true
 }
