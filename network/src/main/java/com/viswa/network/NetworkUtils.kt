@@ -1,4 +1,4 @@
-package com.example.network
+package com.viswa.network
 
 object NetworkUtils {
 

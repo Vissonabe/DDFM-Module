@@ -1,4 +1,4 @@
-package com.example.ddfm_module
+package com.viswa.network
 
 import org.junit.Test
 

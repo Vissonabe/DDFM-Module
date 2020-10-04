@@ -1,4 +1,4 @@
-package com.example.coreui
+package com.viswa.deeplink
 
 import org.junit.Test
 
