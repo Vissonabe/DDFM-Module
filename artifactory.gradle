@@ -1,0 +1,54 @@
+//plugins {
+//    id "com.jfrog.artifactory" version "4.17.2"
+//}
+
+apply plugin: "com.jfrog.artifactory"
+apply plugin: 'maven-publish'
+
+artifactoryPublish.dependsOn('build', 'generatePomFileForAarPublication')
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+
+            def props = new Properties()
+            file("gradle.properties").withInputStream { props.load(it) }
+
+
+            groupId = group
+            artifactId = "${libraryName}"
+//            version = currentVersion
+            version = "${props.getProperty("libraryVersion")}"
+            // Tell maven to prepare the generated "*.aar" file for publishing
+            artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
+        }
+    }
+}
+
+//artifactoryPublish {
+//    publications(publishing.publications.aar)
+//}
+
+artifactory {
+    contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
+    publish {
+        repository {
+            repoKey = 'gradle-dev'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+        }
+        defaults {
+
+            publications('aar')
+            publishArtifacts = true
+            publishPom = true
+        }
+    }
+//    resolve {
+//        repository {
+//            repoKey = 'gradle-dev'
+//            username = "${artifactory_user}"
+//            password = "${artifactory_password}"
+//        }
+//    }
+}
