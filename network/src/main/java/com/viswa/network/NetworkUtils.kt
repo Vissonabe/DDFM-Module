@@ -2,9 +2,9 @@ package com.viswa.network
 
 object NetworkUtils {
 
-    fun isNetworkAvailable() : Boolean {
+    fun isNetworkAvailable(): Boolean {
         return true
     }
 
-    fun isConnectedToWifi() : Boolean = false
+    fun isConnectedToWifi(): Boolean = false
 }
