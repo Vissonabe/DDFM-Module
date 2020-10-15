@@ -27,3 +27,8 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+subprojects { it ->
+    println("inside module submodule name $it")
+    apply from: "$project.rootDir/quality/kotlin-code-quality.gradle"
+}
