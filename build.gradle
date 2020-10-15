@@ -1,13 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.4.0"
+    ext.kotlin_version = "1.4.10"
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.2.0-alpha10"
+        classpath "com.android.tools.build:gradle:4.2.0-alpha13"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.17.2"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -20,7 +21,9 @@ allprojects {
         mavenCentral()
         maven { url 'https://maven.fabric.io/public' }
         maven { url "https://jitpack.io" }
-
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
 }
 
@@ -29,6 +32,7 @@ task clean(type: Delete) {
 }
 
 subprojects { it ->
-    println("inside module submodule name $it")
+    println("inside module submodule  name $it")
     apply from: "$project.rootDir/quality/kotlin-code-quality.gradle"
+//    apply from: "$project.rootDir/artifactory.gradle"
 }
