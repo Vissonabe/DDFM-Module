@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-class DeeplinkHandler constructor(private val processors: Set<@JvmSuppressWildcards IDeeplinkProcessor>)
-    : IDeeplinkHandler {
+class DeeplinkHandler constructor(private val processors: Set<@JvmSuppressWildcards IDeeplinkProcessor>) :
+    IDeeplinkHandler {
     override fun process(intent: Intent, activity: AppCompatActivity?, shouldRender: Boolean): Bundle? {
         processors.forEach {
             if (it.matches(intent)) {
