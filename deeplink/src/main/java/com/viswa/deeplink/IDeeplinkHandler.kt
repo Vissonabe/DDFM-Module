@@ -5,5 +5,5 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 interface IDeeplinkHandler {
-    fun process(intent: Intent, activity: AppCompatActivity?, shouldRender: Boolean = true) : Bundle?
+    fun process(intent: Intent, activity: AppCompatActivity?, shouldRender: Boolean = true): Bundle?
 }

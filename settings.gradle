@@ -1,0 +1,17 @@
+gradle.ext {
+    useNetworkLocal = false
+}
+
+include ':coreUi'
+//project(':coreUi').projectDir = new File(rootProject.projectDir.getAbsolutePath() + "/coreUi")
+
+include ':deeplink'
+//project(':deeplink').projectDir = new File(rootProject.projectDir.getAbsolutePath() + "/deeplink")
+
+include ':network'
+//project(':network').projectDir = new File(rootProject.projectDir.getAbsolutePath() + "/network")
+
+//if (gradle.ext.useNetworkLocal) {
+//    include ':network'
+//    project(':network').projectDir = new File(rootProject.projectDir.getAbsolutePath() + "/modules/network")
+//}
