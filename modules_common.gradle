@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+apply from: "../artifactory.gradle"
+
+android {
+    compileSdkVersion buildConfigs.compileSdk
+    buildToolsVersion buildConfigs.buildTools
+
+    defaultConfig {
+        minSdkVersion buildConfigs.minSdk
+        targetSdkVersion buildConfigs.targetSdk
+        resConfigs "en", "fr"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        releaseDebug {
+            debuggable true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    //common
+    implementation libraries.kotlinstdlib
+    implementation libraries.corektx
+    implementation libraries.appcompat
+    implementation libraries.fragmentktx
+    implementation libraries.androidMaterial
+    implementation libraries.activityKtx
+
+    //testing
+    testImplementation libraries.junit
+    androidTestImplementation libraries.junitExt
+    androidTestImplementation libraries.junitEspresso
+}
