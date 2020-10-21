@@ -1,9 +1,9 @@
-apply from: "../modules_common.gradle"
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
 
-//plugins {
-//    id 'com.android.library'
-//    id 'kotlin-android'
-//}
+apply from: "../modules_common.gradle"
 //
 //apply from: "../artifactory.gradle"
 //
